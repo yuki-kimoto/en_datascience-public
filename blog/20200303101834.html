@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>1000円未満を切り捨てる端数処理のPerlプログラム - Perl Data Analytics Tutorial</title>
-<meta name="description" content="1000円未満を切り捨てる端数処理のPerlプログラムを作成してみましょう。税率を掛ける前に、課税標準額の1000円未満を切り捨てるときに役立ちます。">
+<title> Perl program for rounding down less than 1000 yen  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Let's create a Perl program that rounds down less than 1000 yen. This is useful when you want to cut off the standard taxable amount of less than 1000 yen before multiplying by the tax rate.">
   </head>
   <body>
     <div class="container">
@@ -56,46 +56,46 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20200303101834.html">1000円未満を切り捨てる端数処理のPerlプログラム</a></h2>
+    <h2><a href="/blog/20200303101834.html"> Perl program for rounding down less than 1000 yen </a></h2>
 <p>
-  1000円未満を切り捨てる端数処理のPerlプログラムを作成してみましょう。税率を掛ける前に、課税標準額の1000円未満を切り捨てるときに役立ちます。
+  Let's create a Perl program that rounds down less than 1000 yen. This is useful when you want to cut off the standard taxable amount of less than 1000 yen before multiplying by the tax rate.
 </p>
 <p>
-  最初に与えられた金額が「198,223円」だったとします。1000円未満を切り捨てて「198,000円」にしてみましょう。
+  Suppose the first amount given is "198,223 yen". Let's round down less than 1000 yen to "198,000 yen".
 </p>
-<h3>1000円未満を切り捨てるには?</h3>
+<h3> How to truncate less than 1000 yen? </H3>
 <p>
-  1000円未満を切り捨てる処理は、以下のように考えます。
+  The process of truncating less than 1000 yen is considered as follows.
 </p>
 <ol>
-  <li>1000で割り算をする</li>
-  <li>少数部を切り捨てる</li>
-  <li>1000で掛け算する</li>
+  <li> Divide by 1000 </li>
+  <li> Truncate the decimals </li>
+  <li> Multiply by 1000 </li>
 </ol>
 <pre>
 use strict;
 use warnings;
 
-# 金額
+# Amount of money
 my $price = 198_223;
 
-# 1000で割る(198.223)
+# Divide by 1000 (198.223)
 my $price_div = $price / 1000;
 
-# 整数部を取り出す(198)
+# Extract the integer part (198)
 my $price_div_cut = int $price_div;
 
-# 1000を掛ける(198,000)
+Multiply # 1000 (198,000)
 my $price_cut = $price_div_cut * 1000;
 
-# 結果を出力
+# Output result
 print "$price_cut\n";
 </pre>
 <p>
-  <a href="https://perlzemi.com/blog/20080910122105.html">四則演算</a>と整数部を取り出す<a href="https://perlzemi.com/blog/20080923122214.html">int関数</a>を使っています。
+  <a href="https://perlzemi.com/blog/20080910122105.html"> Four arithmetic operations</a> and extracting the integer part <a href="https://perlzemi.com/blog/20080923122214.html" I am using the> int function</a>.
 </p>
 <p>
-  このプログラムは、コピー＆ペーストして、<a href="https://perlbanjo.com/">PerlBanjo</a>で、すぐに試すことができます。
+  You can copy and paste this program and try it immediately at <a href="https://perlbanjo.com/"> PerlBanjo</a>.
 </p>
 
   </div>

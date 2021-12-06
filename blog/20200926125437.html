@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>SQLで最大最・最小値・平均値を求めてみよう - Perl Data Analytics Tutorial</title>
-<meta name="description" content="SQLで最大値・最小値・平均値を求めてみましょう。テーブルを作成し、データを挿入し、SQLで最大値・最小値・平均値を求めています。">
+<title> Let's find the maximum, minimum, and average values ​​with SQL  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Let's find the maximum, minimum, and average values ​​in SQL. I create a table, insert data, and find the maximum, minimum, and average values ​​in SQL.">
   </head>
   <body>
     <div class="container">
@@ -56,13 +56,13 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20200926125437.html">SQLで最大最・最小値・平均値を求めてみよう</a></h2>
+    <h2><a href="/blog/20200926125437.html"> Let's find the maximum, minimum, and average values ​​with SQL </a></h2>
 <p>
-  SQLで最大値・最小値・平均値を求めてみましょう。テーブルを作成し、データを挿入し、SQLで最大値・最小値・平均値を求めています。
+  Let's find the maximum, minimum, and average values ​​in SQL. I create a table, insert data, and find the maximum, minimum, and average values ​​in SQL.
 </p>
-<h3>データベースを作成</h3>
+<h3> Create database </h3>
 <p>
-  データベースがない場合は<a href="https://en.mariadb.perlzemi.com/blog/20200521082643.html">create database文でデータベースを作成</a>しましょう。
+  If you don't have a database, <a href="https://en.mariadb.perlzemi.com/blog/20200521082643.html"> create a database with the create database statement</a>.
 </p>
 <pre>
 MariaDB [none]&gt; create database kimotosystem;
@@ -77,9 +77,9 @@ MariaDB [kimotosystem]&gt; show tables;
 +-----------------+
 1 row in set (0.01 sec)
 </pre>
-<h3>テーブルの作成</h3>
+<h3> Create table </h3>
 <p>
-  <a href="https://en.mariadb.perlzemi.com/blog/20200218150054.html">create table文を使ってテーブルを作成</a>します。テーブル名はbookです。IDと書名と価格のデータです。
+  <a href="https://en.mariadb.perlzemi.com/blog/20200218150054.html"> Create a table using the create table statement</a>. The table name is book. ID, title and price data.
 </p>
 <pre>
 MariaDB [kimotosystem]&gt; 
@@ -97,9 +97,9 @@ MariaDB [itodb]&gt; desc book;
 +-------+-------------+------+-----+---------+----------------+
 3 rows in set (0.00 sec)
 </pre>
-<h3>データの挿入</h3>
+<h3> Insert data </h3>
 <p>
-  書籍のデータをSQLのinsert文を使って挿入します。
+  Insert book data using the SQL insert statement.
 </p>
 <pre>
 MariaDB [kimotosystem]&gt; insert into kimotosystem.book (name,price) values ('book A',800),('book B', 1000),('book C', 1500),('book D', 2500),('book E',2800),('book F',3500),('book G',4000);
@@ -120,9 +120,9 @@ MariaDB [kimotosystem]&gt; select * from kimotosystem.book;
 +----+--------+-------+
 7 rows in set (0.01 sec)
 </pre>
-<h3>SQLで最大値・最小値・平均値を求める</h3>
+<h3> Find the maximum, minimum, and average values with SQL </h3>
 <p>
-  select文と集合演算を使って、最大値・最小値・平均値を求めます。
+  Use the select statement and set operation to find the maximum, minimum, and average values.
 </p>
 <pre>
 MariaDB [kimotosystem]&gt; select max(price), min(price),avg(price) from kimotosystem.book;

@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>小数点以下の金額を切り上げるPerlプログラム - Perl Data Analytics Tutorial</title>
-<meta name="description" content="小数点以下の金額を切り上げるPerlプログラムを作成してみましょう。金額の割り算をしたときの端数処理に使えます。">
+<title> Perl program that rounds up the amount after the decimal point  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Let's create a Perl program that rounds up the amount after the decimal point. It can be used for rounding when dividing the amount.">
   </head>
   <body>
     <div class="container">
@@ -56,61 +56,61 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20200301101834.html">小数点以下の金額を切り上げるPerlプログラム</a></h2>
+    <h2><a href="/blog/20200301101834.html"> Perl program that rounds up the amount after the decimal point </a></h2>
 <p>
-  小数点以下の金額を切り上げるPerlプログラムを作成してみましょう。金額の割り算をしたときの端数処理に使えます。
+  Let's create a Perl program that rounds up the amount after the decimal point. It can be used for rounding when dividing the amount.
 </p>
 <p>
-  たとえば、買主・売主の負担する金額の合計が9800円で買主の負担が「33/365」だったとしましょう。割り算をすると割り切れません。
+  For example, let's assume that the total amount of money borne by the buyer / seller is 9800 yen and the buyer's burden is "33/365". It is not divisible when divided.
 </p>
 <p>
-  このような場合に、小数点以下を、切り捨てるか、切り上げるかどちらの処理を選択しますが、今回は切り上げる場合を考えてみましょう。
+  In such a case, you can select either rounding down or rounding up after the decimal point, but this time let's consider the case of rounding up.
 </p>
-<h3>小数点以下の金額を切り上げる</h3>
+<h3> Round up the amount after the decimal point </h3>
 <p>
-  小数点以下の金額を切り上げるには、<a href="https://perlzemi.com/blog/20080923122214.html">int関数</a>を使用した後に、1を加えます。
+  To round up the amount after the decimal point, add 1 after using the <a href="https://perlzemi.com/blog/20080923122214.html"> int function</a>.
 </p>
 <pre>
 use strict;
 use warnings;
 
-# 金額 (886.027397260274)
+# Amount (886.027397260274)
 my $price = 9800 * (33/365);
 
-# 小数点以下の金額を切り上げる(887)
+# Round up the amount after the decimal point (887)
 my $price_cut = int($price) + 1;
 
-# 結果を出力
+# Output result
 print "$price_cut\n";
 </pre>
 <p>
-  このプログラムは、コピー＆ペーストして、<a href="https://perlbanjo.com/">PerlBanjo</a>で、すぐに試すことができます。
+  You can copy and paste this program and try it immediately at <a href="https://perlbanjo.com/"> PerlBanjo</a>.
 </p>
-<h3>価格がマイナスの場合にも切り上げるには?</h3>
+<h3> How to round up even if the price is negative? </H3>
 <p>
-  損失を意味する、マイナスの価格を使っている場合が、あるかもしれません。このような場合に、上記のプログラムを実行すると、切り下げられてしまいます。「-886.027397260274」は「-885」になります。
-</p>
-<p>
-  これは、望んでいる処理ではないはずです。以下に、価格がマイナスの場合にも、正しく動くプログラムを提示しておきます。
+  You may be using a negative price, which means a loss. In such a case, if you run the above program, it will be devaluated. "-886.027397260274" becomes "-885".
 </p>
 <p>
-  三項演算子を利用して、価格が0より大きい場合は、上記の処理を、価格が0より小さい場合は「-1」をしています。
+  This shouldn't be what you want. Below is a program that works correctly even if the price is negative.
+</p>
+<p>
+  Using the ternary operator, if the price is larger than 0, the above processing is performed, and if the price is smaller than 0, "-1" is performed.
 </p>
 <pre>
 use strict;
 use warnings;
 
-# 金額 (886.027397260274)
+# Amount (886.027397260274)
 my $price = -9800 * (33/365);
 
-# 小数点以下の金額を切り上げる(-887)
+# Round up the amount after the decimal point (-887)
 my $price_cut = $price &gt; 0 ? int($price) + 1 : int($price) - 1;
 
-# 結果を出力
+# Output result
 print "$price_cut\n";
 </pre>
 <p>
-  このプログラムは、コピー＆ペーストして、<a href="https://perlbanjo.com/">PerlBanjo</a>で、すぐに試すことができます。
+  You can copy and paste this program and try it immediately at <a href="https://perlbanjo.com/"> PerlBanjo</a>.
 </p>
 
   </div>

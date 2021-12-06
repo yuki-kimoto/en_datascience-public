@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>gnuplotで折れ線グラフを作ってみよう - Perl Data Analytics Tutorial</title>
-<meta name="description" content="gnuplotを使って折れ線グラフを作成し、画像ファイルとして保存します。以下のグラフの作成を目標にします。">
+<title> Let's make a line graph with gnuplot  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Create a line chart using gnuplot and save it as an image file. The goal is to create the graph below.">
   </head>
   <body>
     <div class="container">
@@ -56,62 +56,59 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20210325002411.html">gnuplotで折れ線グラフを作ってみよう</a></h2>
+    <h2><a href="/blog/20210325002411.html"> Let's make a line graph with gnuplot </a></h2>
 <p>
-  gnuplotを使って折れ線グラフを作成し、画像ファイルとして保存します。以下のグラフの作成を目標にします。
+  Create a line chart using gnuplot and save it as an image file. The goal is to create the graph below.
 </p>
 <p>
-  <img src="/images/chart/20210325002411_1.png" />
+  <img src = "/images/chart/20210325002411_1.png" />
 </p>
-<h3>gnuplotを準備する</h3>
+<h3> Prepare gnuplot </h3>
 <p>
-  MacではHomebrewを使うことで簡単にインストールすることができます。
+  You can easily install it on your Mac using Homebrew.
 </p>
 <p>
-  インストール方法/簡単な使い方は<a href="/blog/20201129185816.html">こちら</a>
+  <a href="/blog/20201129185816.html"> Click here</a> for installation method / easy usage
 </p>
-<h3>折れ線グラフを作成する</h3>
-<h4>データを準備する</h4>
+<h3> Create a line graph </h3>
+<h4> Prepare the data </​​h4>
 <p>
-  sample-line.datというファイル名で保存しました。
+  I saved it with the file name sample-line.dat.
 </p>
 <pre>
-1 "2016年" 2850
-2 "2017年" 3240
-3 "2018年" 3540
-4 "2019年" 3630
-5 "2020年" 4980
+1 "2016" 2850
+2 "2017" 3240
+3 "2018" 3540
+4 "2019" 3630
+5 "2020" 4980
 </pre>
-<h4>棒グラフを出力を画像として保存する</h4>
+<h4> Save the bar graph as an image </h4>
 <p>
-  以下のようなファイルをpng_plot-lines.txtとして保存します。
+  Save a file like the following as png_plot-lines.txt.
 </p>
 <p>
-  また、グラフのフォーマットも指定してみました。
+  I also tried to specify the format of the graph.
 </p>
 <pre>
 set terminal png font "Sans,9"
 set output 'test-line.png'
 unset key
-set title '年別の売り上げ額'
-set ylabel '(円)'
-# 以下数値の桁区切り
+set title 'year sell'
+set ylabel '(yen)'
 set format "%'.0f"
 set decimalsign locale; set decimalsign "."
 
-plot [][0:] 'sample-line.dat' using 1:3:xtic(2) with lines
+plot [][0:] 'sample-line.dat' using 1:3:xtic(2) with lines&lt;/pre&gt;
+
+Output a line graph with the following command.
+&lt;pre&gt;
+$gnuplot png_plot-lines.txt
 </pre>
 <p>
-  以下のコマンドで折れ線グラフを出力します。
-</p>
-<pre>
-$ gnuplot png_plot-lines.txt
-</pre>
-<p>
-  目標のような画像"test-line.png"は保存されましたでしょうか？
+  Did you save the target-like image "test-line.png"?
 </p>
 <p>
-  plotのオプションを修正することで折れ線グラフ(with lines)にすることができます。
+  You can make it a line chart (with lines) by modifying the plot option.
 </p>
 
   </div>

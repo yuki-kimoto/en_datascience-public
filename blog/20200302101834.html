@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>100円未満を切り捨てる端数処理のPerlプログラム - Perl Data Analytics Tutorial</title>
-<meta name="description" content="100円未満を切り捨てる端数処理のPerlプログラムを作成してみましょう。税率を掛けた後に、税金額の100円未満を切り捨てるときに役立ちます。">
+<title> Perl program for rounding down less than 100 yen  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Let's create a Perl program that rounds down less than 100 yen. This is useful when you want to round off the tax amount of less than 100 yen after multiplying by the tax rate.">
   </head>
   <body>
     <div class="container">
@@ -56,46 +56,46 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20200302101834.html">100円未満を切り捨てる端数処理のPerlプログラム</a></h2>
+    <h2><a href="/blog/20200302101834.html"> Perl program for rounding down less than 100 yen </a></h2>
 <p>
-  100円未満を切り捨てる端数処理のPerlプログラムを作成してみましょう。税率を掛けた後に、税金額の100円未満を切り捨てるときに役立ちます。
+  Let's create a Perl program that rounds down less than 100 yen. This is useful when you want to round off the tax amount of less than 100 yen after multiplying by the tax rate.
 </p>
 <p>
-  最初に与えられた金額が「198,223円」だったとします。100円未満を切り捨てて「198,200円」にしてみましょう。
+  Suppose the first amount given is "198,223 yen". Let's round down less than 100 yen to "198,200 yen".
 </p>
-<h3>100円未満を切り捨てるには?</h3>
+<h3> How to truncate less than 100 yen? </H3>
 <p>
-  100円未満を切り捨てる処理は、以下のように考えます。
+  The process of truncating less than 100 yen is considered as follows.
 </p>
 <ol>
-  <li>100で割り算をする</li>
-  <li>少数部を切り捨てる</li>
-  <li>100で掛け算する</li>
+  <li> Divide by 100 </li>
+  <li> Truncate the decimals </li>
+  <li> Multiply by 100 </li>
 </ol>
 <pre>
 use strict;
 use warnings;
 
-# 金額
+# Amount of money
 my $price = 198_223;
 
-# 100で割る(1982.23)
+# Divide by 100 (1982.23)
 my $price_div = $price / 100;
 
-# 整数部を取り出す(1982)
+# Extract the integer part (1982)
 my $price_div_cut = int $price_div;
 
-# 100を掛ける(198,200)
+# Multiply 100 (198,200)
 my $price_cut = $price_div_cut * 100;
 
-# 結果を出力
+# Output result
 print "$price_cut\n";
 </pre>
 <p>
-  <a href="https://perlzemi.com/blog/20080910122105.html">四則演算</a>と整数部を取り出す<a href="https://perlzemi.com/blog/20080923122214.html">int関数</a>を使っています。
+  <a href="https://perlzemi.com/blog/20080910122105.html"> Four arithmetic operations</a> and extracting the integer part <a href="https://perlzemi.com/blog/20080923122214.html" I am using the> int function</a>.
 </p>
 <p>
-  このプログラムは、コピー＆ペーストして、<a href="https://perlbanjo.com/">PerlBanjo</a>で、すぐに試すことができます。
+  You can copy and paste this program and try it immediately at <a href="https://perlbanjo.com/"> PerlBanjo</a>.
 </p>
 
   </div>

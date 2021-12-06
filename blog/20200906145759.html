@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>標準偏差を求めてみよう - Perl Data Analytics Tutorial</title>
-<meta name="description" content="標準偏差を求める方法をPerlプログラムを用いて説明します。">
+<title> Let's find the standard deviation  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="I will explain how to find the standard deviation using a Perl program.">
   </head>
   <body>
     <div class="container">
@@ -56,23 +56,23 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20200906145759.html">標準偏差を求めてみよう</a></h2>
+    <h2><a href="/blog/20200906145759.html"> Let's find the standard deviation </a></h2>
 <p>
-  標準偏差を求める方法をPerlプログラムを用いて説明します。
+  I will explain how to find the standard deviation using a Perl program.
 </p>
-<h3>標準偏差を求める</h3>
+<h3> Find the standard deviation </h3>
 <p>
-  以下のような配列を考えてみます。
+  Consider the following array.
 </p>
 <pre>
 my @array = (10, 50, 60, 65, 70, 90);
 </pre>
-<h4>配列の標準偏差を求めるサンプルプログラム</h4>
+<h4> Sample program to find the standard deviation of an array </h4>
 <p>
-  実際に配列から標準偏差を求めます。<a href="https://metacpan.org/pod/Statistics::Lite">Statistics::Liteモジュール</a>にstddev関数がありますが、この例では利用しません。
+  Actually find the standard deviation from the array. The <a href="https://metacpan.org/pod/Statistics::Lite"> Statistics::Lite module</a> has a stddev function, but I won't use it in this example.
 </p>
 <p>
-  標準偏差の求め方の説明はしません。
+  I will not explain how to calculate the standard deviation.
 </p>
 <pre>
 use strict;
@@ -106,16 +106,16 @@ sub get_avg {
 
 my @array = (10, 50, 60, 65, 70, 90);
 my $stddev = get_stddev(\@array);
-print "標準偏差は、" . $stddev . "です。\n";
+print "Standard deviation is " . $stddev . "\n";
 </pre>
 <p>
-  実行結果
+  Execution result
 </p>
 <pre>
-標準偏差は、24.452334585202です。
+The standard deviation is 24.452334585202.
 </pre>
 <p>
-  このプログラムは、コピー＆ペーストして、<a href="https://perlbanjo.com">PerlBanjo</a>で、すぐに試すことができます。
+  You can copy and paste this program and try it immediately at <a href="https://perlbanjo.com"> PerlBanjo</a>.
 </p>
 
   </div>

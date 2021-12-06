@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>SQLで月毎の売り上げを集計してみよう - Perl Data Analytics Tutorial</title>
-<meta name="description" content="SQLで月毎の売り上げを集計してみましょう。テーブル作成、データを挿入をし、SQLで月毎の売り上げを集計します。">
+<title> Let's aggregate monthly sales with SQL  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Let's aggregate monthly sales with SQL. Create a table, insert data, and aggregate monthly sales with SQL.">
   </head>
   <body>
     <div class="container">
@@ -56,16 +56,16 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20201004210949.html">SQLで月毎の売り上げを集計してみよう</a></h2>
+    <h2><a href="/blog/20201004210949.html"> Let's aggregate monthly sales with SQL </a></h2>
 <p>
-  SQLで月毎の売り上げを集計してみましょう。テーブル作成、データを挿入をし、SQLで月毎の売り上げを集計します。
+  Let's aggregate monthly sales with SQL. Create a table, insert data, and aggregate monthly sales with SQL.
 </p>
 <p>
-  ※データベースは、<a href="/blog/20200926125437.html">こちら</a>で作成したものを使用します。
+  * The database used is the one created in <a href="/blog/20200926125437.html"> here</a>.
 </p>
-<h3>テーブルの作成</h3>
+<h3> Create table </h3>
 <p>
-  テーブル名はsaleです。IDと販売日時と売り上げ価格のデータです。
+  The table name is sale. ID, sales date and time, and sales price data.
 </p>
 <pre>
 MariaDB [kimotosystem]&gt;create table kimotosystem.sale
@@ -91,9 +91,9 @@ MariaDB [kimotosystem]&gt;desc kimotosystem.sale;
 +----------+----------+------+-----+---------------------+----------------+
 5 rows in set (0.01 sec)
 </pre>
-<h3>データの挿入</h3>
+<h3> Insert data </h3>
 <p>
-  売り上げのデータをSQLのinsert文を使って挿入します。
+  Insert the sales data using the SQL insert statement.
 </p>
 <pre>
 MariaDB [kimotosystem]&gt;insert into kimotosystem.sale (saled_at, book_id, price, quantity) values 
@@ -147,14 +147,13 @@ MariaDB [kimotosystem]&gt;select * from kimotosystem.sale;
 | 20 | 2020-09-26 16:30:00 |       2 |  1000 |        1 |
 +----+---------------------+---------+-------+----------+
 20 rows in set (0.00 sec)
-
 </pre>
-<h3>SQLで月毎の売り上げを集計する</h3>
+<h3> Aggregate monthly sales with SQL </h3>
 <p>
-  select文とGROUP BY句と集計関数を用いて月毎の売り上げを求めます。
+  Use the select statement, GROUP BY clause, and aggregate function to find monthly sales.
 </p>
 <p>
-  sales_datetimeはdatetime型の列のため、date_format関数を利用し'YYYY-MM'の形式にしてgroup byによる集計を行います。
+  Since sales_datetime is a datetime type column, use the date_format function to convert it to'YYYY-MM'format and perform aggregation by group by.
 </p>
 <pre>
 MariaDB [kimotosystem]&gt;select
@@ -172,7 +171,6 @@ MariaDB [kimotosystem]&gt;select
 | 2020-09  | 16600 |
 +----------+-------+
 5 rows in set (0.00 sec)
-
 </pre>
 
   </div>

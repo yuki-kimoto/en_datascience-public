@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>最大値を求めてみよう - Perl Data Analytics Tutorial</title>
-<meta name="description" content="最大値を求める方法をPerlプログラムを用いて説明します。">
+<title> Let's find the maximum value  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="I will explain how to find the maximum value using a Perl program.">
   </head>
   <body>
     <div class="container">
@@ -56,23 +56,25 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20200328191109.html">最大値を求めてみよう</a></h2>
+    <h2><a href="/blog/20200328191109.html"> Let's find the maximum value </a></h2>
 <p>
-  最大値を求める方法をPerlプログラムを用いて説明します。
+  I will explain how to find the maximum value using a Perl program.
 </p>
-<h3>配列の最大値を求めてみよう。</h3>
 <p>
-  以下のような正の数(>0)のみが含まれる配列を考えてみます。
+  Let's find the maximum value of the <h3> array. </h3>
+</p>
+<p>
+  Consider an array that contains only positive numbers (> 0), such as:
 </p>
 <pre>
 @array = (1, 8, 3, 5, 7);
 </pre>
-<h4>配列の最大値を求めるサンプルプログラム</h4>
+<h4> Sample program to find the maximum value of an array </h4>
 <p>
-  実際に配列から最大値を求めます。<a href="https://perlzemi.com/blog/20080114120030.html">List::Utilモジュール</a>にmax関数がありますが、この例では利用しません。
+  Actually find the maximum value from the array. The <a href="https://perlzemi.com/blog/20080114120030.html"> List::Util module</a> has a max function, which is not used in this example.
 </p>
 <p>
-  最大値を保存するための変数を用意し、配列の要素と1つずつ比較することで最大値を求められます。
+  You can find the maximum value by preparing a variable to store the maximum value and comparing it with the elements of the array one by one.
 </p>
 <pre>
 use strict;
@@ -91,47 +93,47 @@ for my $num (@array) {
 print "$max\n";
 </pre>
 <p>
-  実行結果
+  Execution result
 </p>
 <pre>
 8
 </pre>
 <p>
-  1つ1つ比較していて処理がとてもわかりやすいかと思います。
+  I think that the process is very easy to understand by comparing each one.
 </p>
 <p>
-  ※コードを単純化するために正の数(>0)のみが含まれる配列を扱います。
+  * To simplify the code, we will handle an array that contains only positive numbers (> 0).
 </p>
-<h3>表形式のデータから、特定の列の最大値を求めてみよう。</h3>
+<h3> Let's find the maximum value of a specific column from the tabular data. </h3>
 <p>
-  以下のデータを考えてみましょう。
+  Consider the following data.
 </p>
-<table> 
+<table>
   <thead>
-    <tr><th>name</th><th>age</th></tr>
+    <tr> <th> name </th> <th> age </th> </tr>
   </thead>
   <tbody>
-    <tr><th>bob</th><th>9</th></tr>
-    <tr><th>tom</th><th>14</th></tr>
-    <tr><th>alice</th><th>11</th></tr>
+    <tr> <th> bob </th> <th> 9 </th> </tr>
+    <tr> <th> tom </th> <th> 14 </th> </tr>
+    <tr> <th> alice </th> <th> 11 </th> </tr>
   </tbody>
 </table>
 <p>
-  配列,ハッシュのリファレンスで表すと以下のようになります。
+  It is as follows when expressed by the reference of the array and the hash.
 </p>
 <pre>
 $array_ref = [
-  {name =&gt; 'bob',  age =&gt; 9},
-  {name =&gt; 'tom',  age =&gt; 14},
-  {name =&gt; 'alice',age =&gt; 11}
-];
+  {name =&gt;'bob', age =&gt; 9},
+  {name =&gt;'tom', age =&gt; 14},
+  {name =&gt;'alice', age =&gt; 11}
+];;
 </pre>
-<h4>age列の最大値を求めるサンプルプログラム</h4>
+<h4> Sample program to find the maximum value of the age column </h4>
 <p>
-  参照するデータが複雑になったためデータアクセスも少し難しくなりましたが、
+  Data access has become a little more difficult due to the complexity of the referenced data,
 </p>
 <p>
-  チェックする方法は先ほどと同じです。
+  The method of checking is the same as before.
 </p>
 <pre>
 use strict;
@@ -154,16 +156,16 @@ for my $info (@{$array_ref}) {
 print "$max\n";
 </pre>
 <p>
-  実行結果
+  Execution result
 </p>
 <pre>
 14
 </pre>
 <p>
-  リファレンスを扱った以外は先ほどと同じ処理になります。
+  The process is the same as before except that the reference is dealt with.
 </p>
 <p>
-  このプログラムは、コピー＆ペーストして、<a href="https://perlbanjo.com">PerlBanjo</a>で、すぐに試すことができます。
+  You can copy and paste this program and try it immediately at <a href="https://perlbanjo.com"> PerlBanjo</a>.
 </p>
 
   </div>

@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>gnuplotで棒グラフを作ってみよう - Perl Data Analytics Tutorial</title>
-<meta name="description" content="gnuplotを使って棒グラフを作成し、画像ファイルとして保存します。以下のグラフの作成を目標にします。">
+<title> Let's make a bar graph with gnuplot  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Create a bar graph using gnuplot and save it as an image file. The goal is to create the graph below.">
   </head>
   <body>
     <div class="container">
@@ -56,38 +56,38 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20201129185816.html">gnuplotで棒グラフを作ってみよう</a></h2>
+    <h2><a href="/blog/20201129185816.html"> Let's make a bar graph with gnuplot </a></h2>
 <p>
-  gnuplotを使って棒グラフを作成し、画像ファイルとして保存します。以下のグラフの作成を目標にします。
+  Create a bar graph using gnuplot and save it as an image file. The goal is to create the graph below.
 </p>
 <p>
-  <img src="/images/chart/20201129185816_1.png" />
+  <img src = "/images/chart/20201129185816_1.png" />
 </p>
-<h3>gnuplotをインストールする</h3>
+<h3> Install gnuplot </h3>
 <p>
-  MacではHomebrewを使うことで簡単にインストールすることができます。
-</p>
-<pre>
-$ brew install gnuplot
-</pre>
-<h3>棒グラフを作成する</h3>
-<h4>データを準備する</h4>
-<p>
-  sample-box.datというファイル名で保存しました。
+  You can easily install it on your Mac using Homebrew.
 </p>
 <pre>
-1 "2016年" 9500
-2 "2017年" 10800
-3 "2018年" 11800
-4 "2019年" 12100
-5 "2020年" 16600
+$brew install gnuplot
 </pre>
-<h4>グラフを表示する</h4>
+<h3> Create a bar graph </h3>
+<h4> Prepare the data </​​h4>
 <p>
-  gnuplotを起動して、グラフを表示させます。
+  I saved it with the file name sample-box.dat.
+</p>
+<pre>
+1 "2016" 9500
+2 "2017" 10800
+3 "2018" 11800
+4 "2019" 12100
+5 "2020" 16600
+</pre>
+<h4> Display graph </h4>
+<p>
+  Start gnuplot and display the graph.
 </p>
 <p>
-  sample-box.datがカレントディレクトリにない場合は、ファイルパスを指定します。
+  If sample-box.dat is not in the current directory, specify the file path.
 </p>
 <pre>
 $ gnuplot 
@@ -108,14 +108,14 @@ gnuplot&gt; plot 'sample-box.dat' using 1:3:xtic(2) with boxes
 gnuplot&gt;
 </pre>
 <p>
-  棒グラフが表示されましたでしょうか？
+  Did you see a bar chart?
 </p>
 <p>
-  x軸は"2016年"〜"2020年"で表示され、y軸はsample-box.datの3列目の値で棒グラフが作成されたと思います。
+  I think that the x-axis is displayed from "2016" to "2020", and the y-axis is the value in the third column of sample-box.dat to create a bar graph.
 </p>
-<h4>画像として保存する</h4>
+<h4> Save as an image </h4>
 <p>
-  set terminalおよび、set outputで出力先を指定してplotします。
+  Specify the output destination with set terminal and set output and plot.
 </p>
 <pre>
 gnuplot&gt; set terminal png font "Sans,9"
@@ -128,17 +128,17 @@ gnuplot&gt; plot 'sample-box.dat' using 1:3:xtic(2) with boxes
 gnuplot&gt;
 </pre>
 <p>
-  test-boxes.pngファイルとしてグラフが保存されたでしょうか。
+  Was the graph saved as a test-boxes.png file?
 </p>
 <p>
-  fontは皆さんの環境で日本語を表示できるものを選択してください。
+  Select a font that can display Japanese in your environment.
 </p>
-<h4>棒グラフの出力を簡略化する</h4>
+<h4> Simplify the output of bar graphs </h4>
 <p>
-  以下のようなファイルをpng_plot-boxes.txtとして保存します。
+  Save the following file as png_plot-boxes.txt.
 </p>
 <p>
-  また、グラフのフォーマットも指定してみました。
+  I also tried to specify the format of the graph.
 </p>
 <pre>
 set terminal png font "Sans,9"
@@ -146,31 +146,28 @@ set output 'test-boxes.png'
 set boxwidth 0.5
 set style fill solid
 unset key
-set title '年別の売り上げ額'
-set ylabel '(円)'
-# 以下数値の桁区切り
+set title 'year sell'
+set ylabel '(yen)'
 set format "%'.0f"
 set decimalsign locale; set decimalsign "."
 
-plot [][0:] 'sample-box.dat' using 1:3:xtic(2) with boxes
+plot [][0:] 'sample-box.dat' using 1:3:xtic(2) with boxes&lt;/pre&gt;
+
+You can execute the commands in the file all at once by executing the following.
+&lt;pre&gt;
+$gnuplot png_plot-boxes.txt
 </pre>
 <p>
-  以下のように実行することで、ファイル内のコマンドを一括で実行できます。
+  You can get the same result by starting gnuplot and using the load command.
 </p>
 <pre>
-$ gnuplot png_plot-boxes.txt 
+gnuplot&gt; load'png_plot-boxes.txt'
 </pre>
 <p>
-  gnuplotを起動し、loadコマンドを用いても同じ結果が得られます。
-</p>
-<pre>
-gnuplot&gt; load 'png_plot-boxes.txt'
-</pre>
-<p>
-  以下のような画像が保存されます。
+  The following image is saved.
 </p>
 <p>
-  <img src="/images/chart/20201129185816_1.png" />
+  <img src = "/images/chart/20201129185816_1.png" />
 </p>
 
   </div>

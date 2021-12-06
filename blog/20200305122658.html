@@ -35,8 +35,8 @@
   gtag('config', 'G-LNKCYYVSFJ');
 </script>
 
-<title>小数点以下の金額を切り捨てるPerlプログラム - Perl Data Analytics Tutorial</title>
-<meta name="description" content="小数点以下の金額を切り捨てるPerlプログラムを作成してみましょう。金額の割り算をしたときの端数処理に使えます。">
+<title> Perl program that truncates the amount after the decimal point  - Perl Data Analytics Tutorial</title>
+<meta name="description" content="Let's create a Perl program that truncates the amount after the decimal point. It can be used for rounding when dividing the amount.">
   </head>
   <body>
     <div class="container">
@@ -56,35 +56,35 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/blog/20200305122658.html">小数点以下の金額を切り捨てるPerlプログラム</a></h2>
+    <h2><a href="/blog/20200305122658.html"> Perl program that truncates the amount after the decimal point </a></h2>
 <p>
-  小数点以下の金額を切り捨てるPerlプログラムを作成してみましょう。金額の割り算をしたときの端数処理に使えます。
+  Let's create a Perl program that truncates the amount after the decimal point. It can be used for rounding when dividing the amount.
 </p>
 <p>
-  たとえば、買主・売主の負担する金額の合計が9800円で買主の負担が「33/365」だったとしましょう。割り算をすると割り切れません。
+  For example, let's assume that the total amount of money borne by the buyer / seller is 9800 yen and the buyer's burden is "33/365". It is not divisible when divided.
 </p>
 <p>
-  このような場合に、小数点以下を、切り上げるか、切り捨てるかどちらの処理を選択しますが、今回は切り捨てる場合を考えてみましょう。
+  In such a case, you can select either round up or round down after the decimal point, but this time, let's consider the case of rounding down.
 </p>
-<h3>小数点以下の金額を切り捨てる</h3>
+<h3> Truncate the amount after the decimal point </h3>
 <p>
-  小数点以下の金額を切り捨てるには、<a href="https://perlzemi.com/blog/20080923122214.html">int関数</a>を使用します。
+  To truncate the amount after the decimal point, use the <a href="https://perlzemi.com/blog/20080923122214.html"> int function</a>.
 </p>
 <pre>
 use strict;
 use warnings;
 
-# 金額 (886.027397260274)
+# Amount (886.027397260274)
 my $price = 9800 * (33/365);
 
-# 小数点以下の金額を切り捨てる(886)
+# Truncate the amount after the decimal point (886)
 my $price_cut = int $price;
 
-# 結果を出力
+# Output result
 print "$price_cut\n";
 </pre>
 <p>
-  このプログラムは、コピー＆ペーストして、<a href="https://perlbanjo.com/">PerlBanjo</a>で、すぐに試すことができます。
+  You can copy and paste this program and try it immediately at <a href="https://perlbanjo.com/"> PerlBanjo</a>.
 </p>
 
   </div>
